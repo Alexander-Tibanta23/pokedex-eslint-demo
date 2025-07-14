@@ -1,0 +1,72 @@
+configuracion del archivo eslint.config.mjs
+
+// eslint.config.mjs
+
+import js from '@eslint/js';
+import globals from 'globals';
+import { defineConfig } from 'eslint/config';
+
+export default defineConfig([
+  {
+    files: ['**/*.{js,mjs,cjs}'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        document: 'readonly',
+        window: 'readonly',
+        fetch: 'readonly',
+        localStorage: 'readonly',
+      },
+    },
+    plugins: {
+      js,
+    },
+    rules: {
+      // Reglas de estilo
+      indent: ['error', 2],
+      'linebreak-style': ['error', 'unix'],
+      quotes: ['error', 'single'],
+      semi: ['error', 'always'],
+      'comma-dangle': ['error', 'always-multiline'],
+      'no-trailing-spaces': 'error',
+      'no-multiple-empty-lines': ['error', { max: 1 }],
+      'max-len': ['error', { code: 80 }],
+
+      // Reglas de variables
+      'no-undef': 'error',
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      'no-const-assign': 'error',
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'one-var': ['error', 'never'],
+
+      // Reglas de funciones
+      'no-empty': 'error',
+      'max-params': ['error', 4],
+      'max-lines-per-function': ['error', 20],
+      complexity: ['error', 5],
+      'max-statements': ['error', 10],
+      'require-await': 'error',
+      'no-param-reassign': 'error',
+      'no-else-return': 'error',
+
+      // Comparación
+      eqeqeq: ['error', 'always'],
+      'no-extra-parens': 'error',
+      'space-infix-ops': 'error',
+
+      // Producción
+      'no-console': 'warn',
+      'no-warning-comments': [
+        'warn',
+        { terms: ['todo', 'fixme'], location: 'start' },
+      ],
+
+      // Import/export
+      'no-duplicate-imports': 'error',
+    },
+  },
+]);
