@@ -1,0 +1,38 @@
+{
+  "name": "pokedex-eslint-demo",
+  "version": "2.0.0",
+  "description": "Pokédex interactiva con práctica de ESLint",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "lint": "eslint js/",
+    "lint:errors": "eslint js-with-errors/",
+    "lint:fix": "eslint js-with-errors/ --fix",
+    "lint:report": "eslint js-with-errors/ --format json > report.json",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "pokemon",
+    "pokedex",
+    "eslint",
+    "javascript",
+    "practice",
+    "demo"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/pokedex-eslint-demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tu-usuario/pokedex-eslint-demo/issues"
+  },
+  "homepage": "https://github.com/tu-usuario/pokedex-eslint-demo#readme"
+} 

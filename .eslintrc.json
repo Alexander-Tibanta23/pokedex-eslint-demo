@@ -1,0 +1,62 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    // Reglas básicas de estilo
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", "always-multiline"],
+    "no-trailing-spaces": "error",
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
+    "max-len": ["error", { "code": 80 }],
+    
+    // Reglas de variables
+    "no-undef": "error",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-const-assign": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+    "one-var": ["error", "never"],
+    
+    // Reglas de funciones
+    "no-empty": "error",
+    "max-params": ["error", 4],
+    "max-lines-per-function": ["error", 20],
+    "complexity": ["error", 5],
+    "max-statements": ["error", 10],
+    "require-await": "error",
+    "no-floating-promises": "error",
+    "no-param-reassign": "error",
+    "no-else-return": "error",
+    
+    // Reglas de comparación
+    "eqeqeq": ["error", "always"],
+    "no-extra-parens": "error",
+    "space-infix-ops": "error",
+    
+    // Reglas de producción
+    "no-console": "warn",
+    "no-warning-comments": ["warn", { "terms": ["todo", "fixme"], "location": "start" }],
+    
+    // Reglas de import/export
+    "no-duplicate-imports": "error"
+  },
+  "globals": {
+    "document": "readonly",
+    "window": "readonly",
+    "fetch": "readonly",
+    "localStorage": "readonly"
+  }
+} 
