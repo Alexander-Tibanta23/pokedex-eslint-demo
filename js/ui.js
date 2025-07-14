@@ -214,6 +214,48 @@ export async function buildEvolutionChain(chain) {
         const name = document.createElement('p');
         name.textContent = pokemon.name;
         
+        // Agregar ícono de clic
+        const clickIcon = document.createElement('i');
+        clickIcon.className = 'fas fa-mouse-pointer';
+        clickIcon.style.fontSize = '0.8rem';
+        clickIcon.style.color = '#ffd700';
+        clickIcon.style.marginLeft = '0.5rem';
+        
+        // Hacer el elemento clickeable
+        evolutionItem.style.cursor = 'pointer';
+        evolutionItem.title = `Haz clic para ver ${pokemon.name}`;
+        
+        // Agregar el ícono al nombre
+        name.appendChild(clickIcon);
+        
+        // Agregar event listener para mostrar el Pokémon
+        evolutionItem.addEventListener('click', async () => {
+            try {
+                // Mostrar loading mientras se carga
+                showLoading();
+                
+                // Importar las funciones necesarias
+                const { searchPokemon } = await import('./search.js');
+                const { setElementText } = await import('./dom.js');
+                
+                // Actualizar el input de búsqueda
+                setElementText(elements.searchInput, pokemon.name);
+                
+                // Buscar el Pokémon
+                await searchPokemon(pokemon.name);
+                
+                // Hacer scroll hacia arriba para mostrar la tarjeta
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Mostrar notificación
+                showNotification(`Mostrando ${pokemon.name}`, 'success');
+                
+            } catch (error) {
+                console.error('Error al mostrar evolución:', error);
+                showError('Error al cargar la evolución');
+            }
+        });
+        
         evolutionItem.appendChild(img);
         evolutionItem.appendChild(name);
         elements.evolutionChain.appendChild(evolutionItem);
