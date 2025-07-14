@@ -14,6 +14,7 @@ const POKEMON_TYPES = {
     fire: { name: 'Fuego', color: '#f08030' },
     water: { name: 'Agua', color: '#6890f0' }
 }
+
 const STAT_COLORS = {
 hp: '#ff6b6b',
   attack: '#ff8e8e',
@@ -68,7 +69,5 @@ function functionWithUnusedParams(usedParam, unusedParam) {
 }
 
 let declaredButNotUsed = 'valor'
-// ❌ ERROR: Import no utilizado (no-unused-vars)
-import { unusedImport } from './other-file.js'
 
-export { nonExistentFunction } 
+import { unusedImport } from './other-file.js'
